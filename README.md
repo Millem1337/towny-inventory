@@ -1,5 +1,5 @@
 # Towny inventory
-Simple town inventory
+Simple town inventory plugin for minecraft.
 
 # Config
 
