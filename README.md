@@ -1,7 +1,7 @@
 # Towny inventory
 Simple town inventory
 
-# Config looks like
+# Config
 
 ```
 messages:
