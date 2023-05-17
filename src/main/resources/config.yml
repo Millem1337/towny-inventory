@@ -1,9 +1,3 @@
-# Towny inventory
-Simple town inventory
-
-# Config
-
-```
 messages:
   inventory:
     name: "Town inventory"
@@ -12,8 +6,3 @@ messages:
     only_materials: "In inventory you can put only materials!"
 inventory:
   only_materials: false
-```
-
-# Permissions
-
-No permissions in this plugin

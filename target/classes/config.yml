@@ -1,0 +1,6 @@
+messages:
+  inventory:
+    name: "Склад города"
+  err:
+    not_in_town: "Вы не в городе!"
+    only_materials: "В склад можно положить только материалы!"

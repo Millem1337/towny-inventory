@@ -1,0 +1,4 @@
+name: TownyInventory
+version: '1.0-SNAPSHOT'
+main: me.ferrari.tests.inventorysaving.InventorySaving
+api-version: 1.16
