@@ -1,6 +1,10 @@
 messages:
   inventory:
-    name: "Склад города"
+    name: "Town inventory"
   err:
-    not_in_town: "Вы не в городе!"
-    only_materials: "В склад можно положить только материалы!"
+    not_in_town: "You are not in town"
+    only_materials: "In inventory you can put only materials!"
+    only_mayor: "Only mayor can open town inventory!"
+inventory:
+  only_materials: false
+  only_mayor: false

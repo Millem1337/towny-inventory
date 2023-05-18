@@ -21,12 +21,16 @@ public class OpenInventoryCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!TownyAPI.getInstance().getResident((Player) sender).hasTown()){
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', InventorySaving.getInstance().getConfig().getString("messages.err.not_in_town")));
+            sender.sendMessage(Other.convert( InventorySaving.getInstance().getConfig().getString("messages.err.not_in_town")));
             return true;
         }
         Player p = ((Player) sender).getPlayer();
         Inventory inv = Bukkit.createInventory(null, 9*5, ChatColor.translateAlternateColorCodes('&',InventorySaving.getInstance().getConfig().getString("messages.inventory.name")));
         //List<ItemStack> content = null;
+        if(!(TownyAPI.getInstance().getResident(p).isMayor())){
+            sender.sendMessage( Other.convert(InventorySaving.getInstance().getConfig().getString("only_mayor")) );
+            return true;
+        }
         try {
             Bukkit.getLogger().info(TownyAPI.getInstance().getResident(p).getTown().getName());
             if(InventorySaving.getInstance().getSaves().get( TownyAPI.getInstance().getResident(p).getTown().getName() ) != null){
@@ -34,7 +38,7 @@ public class OpenInventoryCommand implements CommandExecutor {
                 List<?> itemStackList = InventorySaving.getInstance().getSaves().getList( TownyAPI.getInstance().getResident(p).getTown().getName() );
                 for(int i = 0; i < inv.getSize(); i++){
                     if(itemStackList.get(i) == null){
-                        Bukkit.getLogger().info("Item is null" + i );
+                        //Bukkit.getLogger().info("Item is null" + i );
                         continue;
                     }
                     inv.setItem(i, (ItemStack) itemStackList.get(i));
