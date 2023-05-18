@@ -27,8 +27,8 @@ public class OpenInventoryCommand implements CommandExecutor {
         Player p = ((Player) sender).getPlayer();
         Inventory inv = Bukkit.createInventory(null, 9*5, ChatColor.translateAlternateColorCodes('&',InventorySaving.getInstance().getConfig().getString("messages.inventory.name")));
         //List<ItemStack> content = null;
-        if(!(TownyAPI.getInstance().getResident(p).isMayor())){
-            sender.sendMessage( Other.convert(InventorySaving.getInstance().getConfig().getString("only_mayor")) );
+        if(!(TownyAPI.getInstance().getResident(p).isMayor()) && InventorySaving.getInstance().getConfig().getBoolean("inventory.only_mayor")){
+            sender.sendMessage( Other.convert(InventorySaving.getInstance().getConfig().getString("messages.err.only_mayor")) );
             return true;
         }
         try {
